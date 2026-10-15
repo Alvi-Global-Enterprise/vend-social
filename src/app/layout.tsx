@@ -16,11 +16,15 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-
 export const metadata: Metadata = {
   title: "VEND-SOCIAL MCR | Smart Vending & Coffee Solutions Manchester",
   description:
     "Premium vending, coffee and water solutions for modern businesses, gyms, residential communities and events across Manchester. Available 24/7.",
+  icons: {
+    icon: "/fav.png",
+    shortcut: "/fav.png",
+    apple: "/fav.png",
+  },
 };
 
 export default function RootLayout({
@@ -33,6 +37,9 @@ export default function RootLayout({
       lang="en"
       className={`${cookie.variable} ${plusJakartaSans.variable} font-sans scroll-smooth`}
     >
+      <head>
+        <link rel="icon" href="/fav.png" type="image/png" />
+      </head>
       <body className="bg-white text-black antialiased selection:bg-[#E300FF] selection:text-white">
         {children}
       </body>
