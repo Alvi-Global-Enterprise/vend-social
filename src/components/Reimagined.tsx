@@ -12,73 +12,85 @@ interface ReimaginedProps {
 
 export default function Reimagined({ onOpenEnquiry }: ReimaginedProps) {
   return (
-    <section className="relative w-full bg-white pt-6 pb-20 overflow-hidden">
-      <div className="max-w-[1746px] mx-auto px-4 sm:px-8 lg:px-12 w-full">
-        {/* Vector 11 Divider Line */}
-        <div className="w-full h-[1px] bg-black opacity-30 mb-12 sm:mb-16" />
+    <section className="relative w-full overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
+      <div className="mx-auto w-full max-w-[1746px] px-4 sm:px-8 lg:px-12">
+        {/* Top divider */}
+        <div className="mb-8 h-px w-full bg-black/25 sm:mb-10 lg:mb-12" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
-          {/* Left Text Column */}
-          <div className="lg:col-span-6 xl:col-span-6 space-y-5 sm:space-y-6 md:space-y-8">
-            <motion.div
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10 xl:gap-14">
+          {/* Left: copy + CTA */}
+          <div className="flex flex-col justify-center py-2 sm:py-4 lg:py-6 lg:pr-4">
+            <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.45 }}
+              className="font-sans text-[32px] font-black leading-[1.08] tracking-[-0.02em] text-black sm:text-[40px] md:text-[48px] lg:text-[52px] xl:text-[56px]"
+              style={{ fontWeight: 900, WebkitTextStroke: "0.35px currentColor" }}
             >
-              <h2 className="text-black font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-[54px] xl:text-[65px] leading-[1.1] sm:leading-[1.09] tracking-[0.01em] capitalize">
-                <div>Complete Vending</div>
-                <div>Solutions</div>
-              </h2>
-            </motion.div>
+              Complete Vending
+              <br />
+              Solutions
+            </motion.h2>
 
             <motion.p
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-black font-normal text-base sm:text-lg md:text-xl lg:text-[21px] xl:text-[23px] leading-[1.45] sm:leading-[1.41] tracking-[0.01em] max-w-xl"
+              transition={{ duration: 0.45, delay: 0.08 }}
+              className="mt-5 max-w-md font-sans text-[15px] font-normal leading-[1.55] text-black sm:mt-6 sm:text-[16px] lg:text-[17px]"
             >
-              Vend-Social MCR provides for today&apos;s fast moving, seamless city living.
+              Vend-Social MCR provides for today&apos;s fast moving, seamless
+              city living.
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 14 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="pt-1 sm:pt-2"
+              transition={{ duration: 0.45, delay: 0.16 }}
+              className="mt-7 sm:mt-8"
             >
               <button
+                type="button"
                 onClick={onOpenEnquiry}
-                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 bg-[#E300FF] hover:bg-[#eb2eff] text-black font-bold text-sm sm:text-base xl:text-[18px] px-6 sm:px-8 h-[44px] sm:h-[48px] rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-md"
+                className="
+                  inline-flex h-11 items-center justify-center gap-2.5
+                  rounded-full bg-[#E300FF] px-7
+                  font-sans text-[14px] font-bold text-black
+                  transition-all duration-300
+                  hover:scale-[1.03] hover:bg-[#eb2eff] active:scale-[0.98]
+                  sm:h-12 sm:gap-3 sm:px-8 sm:text-[15px]
+                "
               >
                 <span>Make an Enquiry</span>
-                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.8]" />
+                <ArrowRight className="h-4 w-4 stroke-[2.8]" />
               </button>
             </motion.div>
           </div>
 
-          {/* Right Image Column (complete-vending.png) */}
+          {/* Right: image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 xl:col-span-6"
+            transition={{ duration: 0.55 }}
+            className="w-full"
           >
-            <div className="relative w-full aspect-[876/511] min-h-[200px] sm:min-h-[300px] md:min-h-[380px] lg:min-h-[440px] xl:min-h-[490px] rounded-[16px] sm:rounded-[20px] overflow-hidden shadow-xl">
+            <div className="relative aspect-[876/511] min-h-[220px] w-full overflow-hidden rounded-[16px] sm:min-h-[300px] sm:rounded-[20px] md:min-h-[360px] lg:min-h-[400px] xl:min-h-[440px]">
               <Image
                 src="/images/complete-vending.png"
-                alt="Contactless Payment Vending Machine"
+                alt="Contactless payment on a VEND-SOCIAL MCR vending machine"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
                 className="object-cover object-center select-none"
               />
             </div>
           </motion.div>
         </div>
+
+        {/* Bottom divider */}
+        <div className="mt-8 h-px w-full bg-black/25 sm:mt-10 lg:mt-12" />
       </div>
     </section>
   );

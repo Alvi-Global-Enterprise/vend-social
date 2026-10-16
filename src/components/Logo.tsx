@@ -12,20 +12,19 @@ export default function Logo({
   size = "md",
 }: LogoProps) {
   const dimensions = {
-    sm: { width: 100, height: 25, className: "h-2 sm:h-6 " },
-    md: { width: 320, height: 40, className: "h-7 sm:h-8 md:h-10 w-auto" },
-    lg: { width: 500, height: 62, className: "h-7 sm:h-9 md:h-11 lg:h-14 w-auto" },
+    sm: { width: 140, height: 36, className: "h-7 w-auto" },
+    md: { width: 280, height: 56, className: "h-9 sm:h-10 md:h-11 w-auto" },
+    lg: { width: 360, height: 72, className: "h-11 sm:h-12 md:h-14 lg:h-[58px] xl:h-[62px] w-auto" },
   }[size];
 
   return (
     <div className={`inline-flex items-center select-none ${className}`}>
       <Image
         src="/images/logo.png"
-        alt="VEND-SOCIAL MCR Logo"
-        width={200}
-        height={40}
-        style={{ width: "auto", height: "auto" }}
-        className={`${dimensions.className} object-contain`}
+        alt="VEND-SOCIAL MCR — Curated. Convenient. Connected."
+        width={dimensions.width}
+        height={dimensions.height}
+        className={`${dimensions.className} object-contain object-left`}
         priority
       />
     </div>

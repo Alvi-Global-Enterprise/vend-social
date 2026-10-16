@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, User, Phone, Mail, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Users, Phone, Mail, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+
+const inputClass =
+  "w-full h-11 sm:h-12 bg-[#E8E8E8] hover:bg-[#E0E0E0] focus:bg-[#EFEFEF] border-0 rounded-full px-5 sm:px-6 text-black placeholder:text-black/35 font-normal text-[14px] sm:text-[15px] focus:outline-none focus:ring-2 focus:ring-[#E300FF]/50 transition-all";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -34,76 +37,79 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative w-full bg-white pt-6 pb-24 overflow-hidden">
-      <div className="max-w-[1746px] mx-auto px-4 sm:px-8 lg:px-12 w-full">
-        {/* Vector 14 Divider Line */}
-        <div className="w-full h-[1px] bg-black opacity-30 mb-12 sm:mb-16" />
+    <section
+      id="contact"
+      className="relative w-full overflow-hidden bg-white pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24"
+    >
+      <div className="mx-auto w-full max-w-[1746px] px-4 sm:px-8 lg:px-12">
+        {/* Top divider */}
+        <div className="mb-10 h-px w-full bg-black/25 sm:mb-12 lg:mb-16" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Contact Us Info */}
-          <div className="lg:col-span-5 xl:col-span-5 space-y-6 sm:space-y-8">
-            <div>
-              <h2 className="text-black font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] xl:text-[65px] leading-[1.1] sm:leading-[1.09] tracking-[0.01em] mb-2 sm:mb-4">
-                Contact Us
-              </h2>
-              <p className="text-black font-normal text-lg sm:text-xl md:text-2xl lg:text-[23px] xl:text-[25px] leading-[1.3] sm:leading-[1.41] tracking-[0.01em]">
-                Let&apos;s Create a Convenient Solution...
-              </p>
-            </div>
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-14 xl:gap-16">
+          {/* Left: contact info */}
+          <div className="lg:col-span-5 xl:col-span-5">
+            <h2
+              className="mb-2 font-sans text-[36px] font-black leading-[1.08] tracking-[-0.015em] text-black sm:mb-3 sm:text-[44px] md:text-[52px] lg:text-[56px] xl:text-[60px]"
+              style={{ fontWeight: 900, WebkitTextStroke: "0.3px currentColor" }}
+            >
+              Contact Us
+            </h2>
+            <p className="mb-8 font-sans text-[16px] font-normal leading-[1.4] text-black sm:mb-10 sm:text-[18px] lg:text-[20px]">
+              Let&apos;s Create a Convenient Solution...
+            </p>
 
-            {/* Team Members & Contact Details */}
-            <div className="space-y-5 sm:space-y-6 pt-1 sm:pt-2">
-              {/* Person 1: Jay Patwal MA */}
-              <div className="flex items-start gap-3.5 sm:gap-4">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#E300FF]/15 flex items-center justify-center shrink-0 mt-0.5">
-                  <User className="w-4 h-4 sm:w-5 sm:h-5 text-[#E300FF]" />
-                </div>
+            <div className="space-y-5 sm:space-y-6">
+              <div className="flex items-start gap-3.5">
+                <Users
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[#E300FF] sm:h-[22px] sm:w-[22px]"
+                  strokeWidth={2.2}
+                />
                 <div>
-                  <div className="text-black font-bold text-base sm:text-[18px] leading-[1.3] sm:leading-[1.41] uppercase tracking-[0.01em]">
+                  <div className="font-sans text-[14px] font-bold uppercase leading-snug tracking-[0.02em] text-black sm:text-[15px]">
                     Jay Patwal MA
                   </div>
-                  <div className="text-black/50 font-normal text-xs sm:text-sm md:text-[16px] leading-[1.3] sm:leading-[1.41] uppercase tracking-[0.01em]">
+                  <div className="mt-0.5 font-sans text-[12px] font-normal uppercase tracking-[0.02em] text-black/45 sm:text-[13px]">
                     Sales Executive
                   </div>
                 </div>
               </div>
 
-              {/* Person 2: Kira Kaur LLB Hons Dip LP */}
-              <div className="flex items-start gap-3.5 sm:gap-4">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#E300FF]/15 flex items-center justify-center shrink-0 mt-0.5">
-                  <User className="w-4 h-4 sm:w-5 sm:h-5 text-[#E300FF]" />
-                </div>
+              <div className="flex items-start gap-3.5">
+                <Users
+                  className="mt-0.5 h-5 w-5 shrink-0 text-[#E300FF] sm:h-[22px] sm:w-[22px]"
+                  strokeWidth={2.2}
+                />
                 <div>
-                  <div className="text-black font-bold text-base sm:text-[18px] leading-[1.3] sm:leading-[1.41] uppercase tracking-[0.01em]">
+                  <div className="font-sans text-[14px] font-bold uppercase leading-snug tracking-[0.02em] text-black sm:text-[15px]">
                     Kira Kaur LLB Hons Dip LP
                   </div>
-                  <div className="text-black/50 font-normal text-xs sm:text-sm md:text-[16px] leading-[1.3] sm:leading-[1.41] uppercase tracking-[0.01em]">
+                  <div className="mt-0.5 font-sans text-[12px] font-normal uppercase tracking-[0.02em] text-black/45 sm:text-[13px]">
                     New Business Manager
                   </div>
                 </div>
               </div>
 
-              {/* Phone */}
-              <div className="flex items-center gap-3.5 sm:gap-4 pt-1">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#E300FF]/15 flex items-center justify-center shrink-0">
-                  <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E300FF] fill-[#E300FF]" />
-                </div>
+              <div className="flex items-center gap-3.5 pt-1">
+                <Phone
+                  className="h-5 w-5 shrink-0 fill-[#E300FF] text-[#E300FF] sm:h-[20px] sm:w-[20px]"
+                  strokeWidth={2}
+                />
                 <a
                   href="tel:07503777838"
-                  className="text-black/60 hover:text-black font-normal text-sm sm:text-base md:text-[18px] leading-[1.41] uppercase tracking-[0.01em] transition-colors"
+                  className="font-sans text-[14px] font-normal uppercase tracking-[0.02em] text-black/55 transition-colors hover:text-black sm:text-[15px]"
                 >
                   07503 777 838
                 </a>
               </div>
 
-              {/* Email */}
-              <div className="flex items-center gap-3.5 sm:gap-4">
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#E300FF]/15 flex items-center justify-center shrink-0">
-                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E300FF]" />
-                </div>
+              <div className="flex items-center gap-3.5">
+                <Mail
+                  className="h-5 w-5 shrink-0 text-[#E300FF] sm:h-[20px] sm:w-[20px]"
+                  strokeWidth={2}
+                />
                 <a
                   href="mailto:jk@vendsocialmcr.com"
-                  className="text-black/60 hover:text-black font-normal text-sm sm:text-base md:text-[18px] leading-[1.41] underline uppercase tracking-[0.01em] transition-colors break-all sm:break-normal"
+                  className="break-all font-sans text-[14px] font-normal uppercase tracking-[0.02em] text-black/55 underline transition-colors hover:text-black sm:break-normal sm:text-[15px]"
                 >
                   jk@vendsocialmcr.com
                 </a>
@@ -111,105 +117,121 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7 xl:col-span-7 w-full">
+          {/* Right: form */}
+          <div className="w-full lg:col-span-7 xl:col-span-7">
             {submitted ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="bg-neutral-50 border border-[#E300FF]/30 rounded-3xl p-6 sm:p-12 text-center space-y-4 shadow-lg"
+                className="space-y-4 rounded-3xl border border-[#E300FF]/30 bg-neutral-50 p-6 text-center shadow-lg sm:p-12"
               >
-                <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#E300FF]/20 rounded-full flex items-center justify-center mx-auto text-[#E300FF]">
-                  <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#E300FF]/20 text-[#E300FF] sm:h-16 sm:w-16">
+                  <CheckCircle2 className="h-8 w-8 sm:h-10 sm:w-10" />
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-black">Thank You!</h3>
-                <p className="text-black/70 text-base sm:text-lg max-w-md mx-auto">
-                  Your enquiry has been received. Our team will contact you shortly to arrange your free consultation.
+                <h3 className="text-2xl font-extrabold text-black sm:text-3xl">
+                  Thank You!
+                </h3>
+                <p className="mx-auto max-w-md text-base text-black/70 sm:text-lg">
+                  Your enquiry has been received. Our team will contact you
+                  shortly to arrange your free consultation.
                 </p>
               </motion.div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                {/* Row 1: Name* and Company* */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+              <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+                <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4">
                   <input
                     type="text"
                     required
                     placeholder="Name*"
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full h-[44px] sm:h-[45px] bg-[#D9D9D9] hover:bg-[#d0d0d0] focus:bg-[#e0e0e0] border-0 rounded-full px-5 sm:px-6 text-black placeholder:text-black/40 font-normal text-sm sm:text-[16px] focus:outline-none focus:ring-2 focus:ring-[#E300FF] transition-all"
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
+                    className={inputClass}
                   />
                   <input
                     type="text"
                     required
                     placeholder="Company*"
                     value={formData.company}
-                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full h-[44px] sm:h-[45px] bg-[#D9D9D9] hover:bg-[#d0d0d0] focus:bg-[#e0e0e0] border-0 rounded-full px-5 sm:px-6 text-black placeholder:text-black/40 font-normal text-sm sm:text-[16px] focus:outline-none focus:ring-2 focus:ring-[#E300FF] transition-all"
+                    onChange={(e) =>
+                      setFormData({ ...formData, company: e.target.value })
+                    }
+                    className={inputClass}
                   />
                 </div>
 
-                {/* Row 2: Email* and Phone* */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4">
                   <input
                     type="email"
                     required
                     placeholder="Email*"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full h-[44px] sm:h-[45px] bg-[#D9D9D9] hover:bg-[#d0d0d0] focus:bg-[#e0e0e0] border-0 rounded-full px-5 sm:px-6 text-black placeholder:text-black/40 font-normal text-sm sm:text-[16px] focus:outline-none focus:ring-2 focus:ring-[#E300FF] transition-all"
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    className={inputClass}
                   />
                   <input
                     type="tel"
                     required
                     placeholder="Phone*"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full h-[44px] sm:h-[45px] bg-[#D9D9D9] hover:bg-[#d0d0d0] focus:bg-[#e0e0e0] border-0 rounded-full px-5 sm:px-6 text-black placeholder:text-black/40 font-normal text-sm sm:text-[16px] focus:outline-none focus:ring-2 focus:ring-[#E300FF] transition-all"
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
+                    className={inputClass}
                   />
                 </div>
 
-                {/* Row 3: Location* and Space Type* */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-4">
                   <input
                     type="text"
                     required
                     placeholder="Location*"
                     value={formData.location}
-                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    className="w-full h-[44px] sm:h-[45px] bg-[#D9D9D9] hover:bg-[#d0d0d0] focus:bg-[#e0e0e0] border-0 rounded-full px-5 sm:px-6 text-black placeholder:text-black/40 font-normal text-sm sm:text-[16px] focus:outline-none focus:ring-2 focus:ring-[#E300FF] transition-all"
+                    onChange={(e) =>
+                      setFormData({ ...formData, location: e.target.value })
+                    }
+                    className={inputClass}
                   />
                   <input
                     type="text"
+                    required
                     placeholder="Space Type / Requirement*"
                     value={formData.sector}
-                    onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
-                    className="w-full h-[44px] sm:h-[45px] bg-[#D9D9D9] hover:bg-[#d0d0d0] focus:bg-[#e0e0e0] border-0 rounded-full px-5 sm:px-6 text-black placeholder:text-black/40 font-normal text-sm sm:text-[16px] focus:outline-none focus:ring-2 focus:ring-[#E300FF] transition-all"
+                    onChange={(e) =>
+                      setFormData({ ...formData, sector: e.target.value })
+                    }
+                    className={inputClass}
                   />
                 </div>
 
-                {/* Row 4: Message* */}
-                <div>
-                  <textarea
-                    rows={2}
-                    required
-                    placeholder="Message*"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full min-h-[66px] sm:min-h-[72px] py-3 bg-[#D9D9D9] hover:bg-[#d0d0d0] focus:bg-[#e0e0e0] border-0 rounded-[24px] sm:rounded-[33px] px-5 sm:px-6 text-black placeholder:text-black/40 font-normal text-sm sm:text-[16px] focus:outline-none focus:ring-2 focus:ring-[#E300FF] transition-all resize-none"
-                  />
-                </div>
+                <textarea
+                  rows={3}
+                  required
+                  placeholder="Message*"
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  className="w-full min-h-[72px] resize-none rounded-[24px] border-0 bg-[#E8E8E8] px-5 py-3.5 text-[14px] font-normal text-black placeholder:text-black/35 transition-all hover:bg-[#E0E0E0] focus:bg-[#EFEFEF] focus:outline-none focus:ring-2 focus:ring-[#E300FF]/50 sm:min-h-[80px] sm:rounded-[28px] sm:px-6 sm:text-[15px]"
+                />
 
-                {/* Row 5: SEND ENQUIRY Button */}
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full h-[46px] sm:h-[48px] bg-[#E300FF] hover:bg-[#eb2eff] text-black font-bold text-sm sm:text-base xl:text-[18px] rounded-full inline-flex items-center justify-center gap-2.5 sm:gap-3 transition-all duration-300 transform hover:scale-[1.01] active:scale-[0.99] shadow-md uppercase tracking-wide"
-                  >
-                    <span>SEND ENQUIRY</span>
-                    <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.8]" />
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  className="
+                    inline-flex h-12 w-full items-center justify-center gap-2.5
+                    rounded-full bg-[#E300FF]
+                    font-sans text-[14px] font-bold uppercase tracking-wide text-black
+                    transition-all duration-300
+                    hover:scale-[1.01] hover:bg-[#eb2eff] active:scale-[0.99]
+                    sm:h-[50px] sm:gap-3 sm:text-[15px]
+                  "
+                >
+                  <span>SEND ENQUIRY</span>
+                  <ArrowRight className="h-4 w-4 stroke-[2.8]" />
+                </button>
               </form>
             )}
           </div>

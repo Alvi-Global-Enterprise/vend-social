@@ -39,60 +39,60 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative w-full bg-white pt-6 pb-24 overflow-hidden">
-      <div className="max-w-[1746px] mx-auto px-4 sm:px-8 lg:px-12 w-full">
-        {/* Vector 13 Divider Line */}
-        <div className="w-full h-[1px] bg-black opacity-30 mb-12 sm:mb-16" />
+    <section className="relative w-full overflow-hidden bg-white pt-10 pb-16 sm:pt-14 sm:pb-20 lg:pt-16 lg:pb-24">
+      <div className="mx-auto w-full max-w-[1746px] px-4 sm:px-8 lg:px-12">
+        {/* Top divider */}
+        <div className="mb-10 h-px w-full bg-black/25 sm:mb-12 lg:mb-16" />
 
-        {/* Section Heading Centered */}
-        <div className="text-center mb-10 sm:mb-14 lg:mb-20">
-          <div className="text-[#E300FF] font-bold text-xs sm:text-sm md:text-base lg:text-[18px] xl:text-[23px] tracking-[0.22em] sm:tracking-[0.32em] uppercase mb-2 sm:mb-3">
+        {/* Centered header */}
+        <div className="mb-10 text-center sm:mb-12 lg:mb-16">
+          <p className="mb-2 font-sans text-[12px] font-bold uppercase tracking-[0.28em] text-[#E300FF] sm:mb-3 sm:text-[13px] sm:tracking-[0.32em]">
             WHY VEND-SOCIAL MCR
-          </div>
-
-          <h2 className="text-black font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-[54px] xl:text-[65px] leading-[1.1] sm:leading-[1.09] tracking-[0.01em]">
+          </p>
+          <h2
+            className="font-sans text-[32px] font-black leading-[1.08] tracking-[-0.015em] text-black sm:text-[40px] md:text-[48px] lg:text-[52px] xl:text-[56px]"
+            style={{ fontWeight: 900, WebkitTextStroke: "0.3px currentColor" }}
+          >
             Why Choose Us?
           </h2>
         </div>
 
-        {/* 5 Columns Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-0 relative">
+        {/* 5 columns */}
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 md:grid-cols-3 lg:grid-cols-5 lg:gap-0">
           {steps.map((step, index) => (
             <motion.div
               key={step.num}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative flex flex-col justify-between group lg:px-3 xl:px-6 2xl:px-8 ${
-                index !== 0 ? "lg:border-l lg:border-[#D9D9D9]" : ""
-              }`}
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              className={`
+                group relative flex flex-col
+                lg:px-4 xl:px-5
+                ${index !== 0 ? "lg:border-l lg:border-[#D9D9D9]" : ""}
+              `}
             >
-              <div>
-                {/* Big Number */}
-                <div className="text-black font-extrabold text-4xl sm:text-5xl lg:text-[44px] xl:text-[54px] 2xl:text-[65px] leading-[1.09] tracking-[0.01em] mb-2 sm:mb-3 xl:mb-4">
+              <div className="mb-5 flex-1 sm:mb-6">
+                <div className="mb-2 font-sans text-[40px] font-black leading-none tracking-[-0.02em] text-black sm:mb-3 sm:text-[44px] lg:text-[42px] xl:text-[48px]">
                   {step.num}
                 </div>
 
-                {/* Subtitle in Magenta */}
-                <h3 className="text-[#E300FF] font-extrabold text-base sm:text-lg lg:text-[16px] xl:text-[18px] 2xl:text-[20px] tracking-[0.01em] uppercase leading-[1.15] mb-2 sm:mb-3">
+                <h3 className="mb-2 font-sans text-[14px] font-extrabold uppercase leading-[1.2] tracking-[0.01em] text-[#E300FF] sm:text-[15px] xl:text-[16px]">
                   {step.title}
                 </h3>
 
-                {/* Description */}
-                <p className="text-black/50 font-normal text-xs sm:text-sm md:text-base lg:text-[13px] xl:text-[16px] 2xl:text-[20px] leading-[1.35] mb-4 sm:mb-6 min-h-[auto] sm:min-h-[44px] lg:min-h-[52px]">
+                <p className="min-h-[40px] font-sans text-[13px] font-normal leading-[1.4] text-black/45 sm:min-h-[44px] sm:text-[14px] lg:text-[13px] xl:text-[14px]">
                   {step.desc}
                 </p>
               </div>
 
-              {/* Bottom Thumbnail Image with Fluid Aspect Ratio */}
-              <div className="relative w-full aspect-[272/172] rounded-[16px] overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
+              <div className="relative aspect-[272/172] w-full overflow-hidden rounded-[14px] sm:rounded-[16px]">
                 <Image
                   src={step.image}
                   alt={step.title}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
             </motion.div>
