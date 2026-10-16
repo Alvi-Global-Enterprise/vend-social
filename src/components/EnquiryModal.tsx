@@ -37,9 +37,9 @@ export default function EnquiryModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3.5 sm:p-6 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
       <div
-        className="relative w-full max-w-xl bg-neutral-950 border border-[#E300FF]/40 rounded-3xl p-6 sm:p-8 shadow-2xl text-white"
+        className="relative w-full max-w-xl max-h-[92vh] overflow-y-auto bg-neutral-950 border border-[#E300FF]/40 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl text-white"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}

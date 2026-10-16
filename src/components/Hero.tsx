@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -9,144 +10,298 @@ interface HeroProps {
   onOpenEnquiry?: () => void;
 }
 
+const featureCards = [
+  { title: "PREMIUM PRODUCTS", bgDark: true },
+  { title: "CONVENIENT ACCESS", bgDark: false },
+  { title: "CONNECTED SPACES", bgDark: false },
+  { title: "SUSTAINABLE SOLUTIONS", bgDark: false },
+];
+
 export default function Hero({ onOpenEnquiry }: HeroProps) {
+  const scrollToServices = () => {
+    document.getElementById("services")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section
       id="home"
-      className="relative min-h-[820px] md:min-h-[880px] lg:min-h-[920px] xl:min-h-[960px] w-full bg-black text-white overflow-hidden pt-32 lg:pt-36 pb-16 flex items-center"
+      className="relative w-full bg-white pt-20 pb-6 sm:pb-8 lg:pb-12"
     >
-      {/* Background Image: Figma Group 195.png covering full section */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/Group 195.png"
-          alt="Smart Vending Available 24/7"
-          fill
-          priority
-          className="object-cover object-right md:object-center lg:object-right select-none pointer-events-none"
-        />
-        {/* Subtle radial/linear dark gradient on far-left to ensure perfect typography contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent lg:w-3/5 pointer-events-none" />
-      </div>
+      <div className="mx-auto w-full max-w-[1742px] px-3 sm:px-5 lg:px-8 xl:px-10">
 
-      <div className="relative z-10 max-w-[1920px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 w-full">
-        <div className="max-w-2xl lg:max-w-3xl space-y-6 md:space-y-7">
-          {/* Subtitle Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <span className="text-[#E300FF] font-bold text-[15px] sm:text-[17px] md:text-[18px] tracking-[0.32em] uppercase">
-              CONVENIENT • FRESH • ALWAYS ON
-            </span>
-          </motion.div>
+        {/* HERO BANNER */}
+        <div
+          className="
+            relative isolate w-full overflow-hidden
+            rounded-2xl sm:rounded-3xl lg:rounded-[28px]
 
-          {/* Heading */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-1"
+            /* Mobile/sm: vw-based height */
+            h-[55vw] min-h-[240px] max-h-[360px]
+            sm:h-[46vw] sm:min-h-[300px] sm:max-h-[440px]
+
+            /* md+: aspect ratio, taller to accommodate full-bleed image */
+            md:h-auto md:min-h-0 md:max-h-none
+            md:aspect-[16/9]
+            lg:aspect-[16/9]
+            xl:aspect-[1742/742]
+          "
+        >
+          {/* ── Mobile + Laptop image: hero-image.png (< md AND lg+) ── */}
+          <Image
+            src="/images/hero-image.png"
+            alt="VEND-SOCIAL MCR smart vending machines overlooking Manchester"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 0px, 1742px"
+            className="object-cover object-center mt-30 md:hidden lg:block"
+          />
+
+          {/* ── Tablet-only image: hero-image1.png (md only, 768-1023px) ── */}
+          <Image
+            src="/images/hero-image1.png"
+            alt="VEND-SOCIAL MCR smart vending machines overlooking Manchester"
+            fill
+            priority
+            sizes="(max-width: 768px) 0px, (max-width: 1024px) 100vw, 0px"
+            className="object-cover object-center mt-20  hidden md:block lg:hidden"
+          />
+
+          {/* ── MOBILE/SM CONTENT PANEL (overlaid, hidden on md tablet only) ── */}
+          <div
+            className="
+              md:hidden lg:block
+              absolute left-0 top-0 z-10
+              bg-white
+
+              w-[calc(100%-40px)]
+              sm:w-[calc(100%-56px)]
+              lg:w-[79%]
+              xl:w-[78%]
+
+              rounded-br-[18px]
+              sm:rounded-br-[26px]
+              lg:rounded-br-[36px]
+
+              px-3 py-3
+              sm:px-5 sm:py-4
+              lg:px-8 lg:py-6
+              xl:px-10 xl:py-7
+            "
           >
-            <h1 className="text-white text-5xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold tracking-tight uppercase leading-[1.06]">
-              SMART VENDING
-            </h1>
-            <div className="font-cookie text-[#E300FF] text-6xl sm:text-7xl md:text-8xl lg:text-[110px] leading-[0.95] gradient-text-purple-magenta select-none pt-1">
-              Available 24/7
+            <div className="flex mt-10 items-start justify-between gap-3 sm:gap-4 lg:gap-10">
+              {/* HEADING */}
+              <div className="flex-shrink-0 w-[42%] sm:w-[40%] lg:w-[32%] xl:w-[30%]">
+                <h1
+                  className="
+                    font-sans font-extrabold tracking-tight text-black leading-[1.15]
+                    text-[clamp(13px,3.5vw,18px)]
+                    sm:text-[clamp(16px,2.8vw,21px)]
+                    lg:text-[24px]
+                    xl:text-[27px]
+                  "
+                >
+                  Premium Vending
+                  <br />
+                  In MCR - Part Of
+                  <br />
+                  A Lifestyle!
+                </h1>
+              </div>
+              {/* DESCRIPTION */}
+              <div className="flex-1 min-w-0">
+                <p
+                  className="
+                    font-sans font-normal text-black leading-[1.5]
+                    text-center
+                    text-[clamp(9px,2.2vw,11px)]
+                    sm:text-[clamp(10px,1.7vw,12px)]
+                    lg:text-right lg:text-[13px]
+                    xl:text-[15px]
+                  "
+                >
+                  Vende-Social MCR provides for today&apos;s fast-moving,
+                  seamless city living. Inspired by the exciting and lofty
+                  Manchester skyline, we recognise that vending has a social
+                  role; keeping your clients, staff, members and visitors
+                  connected!
+                </p>
+              </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Paragraph */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-white text-base sm:text-lg md:text-[22px] lg:text-[24px] font-normal leading-[1.42] max-w-2xl tracking-[0.01em]"
+          {/* ── SCROLL ARROW (always inside banner, top-right) ── */}
+          <button
+            type="button"
+            onClick={scrollToServices}
+            aria-label="Scroll down to services"
+            className="
+              absolute right-2.5 top-2.5 z-20
+              flex items-center justify-center
+              h-9 w-9
+              rounded-full border-2 border-black bg-white
+              shadow-md transition-transform duration-300
+              hover:scale-105 hover:bg-black
+              group
+              sm:right-3.5 sm:top-3.5 sm:h-11 sm:w-11
+              md:right-4 md:top-4
+              lg:right-6 lg:top-6 lg:h-[54px] lg:w-[54px]
+              xl:right-8 xl:top-8 xl:h-[62px] xl:w-[62px]
+            "
           >
-            Premium vending, coffee and water solutions for modern businesses, gyms, residential communities and events across Manchester.
-          </motion.p>
+            <ArrowRight
+              className="
+                -rotate-45 text-[#E300FF]
+                transition-transform group-hover:scale-110 group-hover:text-white
+                h-4 w-4
+                sm:h-5 sm:w-5
+                lg:h-6 lg:w-6
+                xl:h-7 xl:w-7
+              "
+              strokeWidth={2.5}
+            />
+          </button>
 
-          {/* Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap items-center gap-4 pt-2"
+          {/* ── ACTION BUTTONS (always inside banner, bottom-right) ── */}
+          <div
+            className="
+              absolute bottom-2.5 right-2.5 z-20
+              flex items-center gap-2
+              sm:bottom-3.5 sm:right-3.5 sm:gap-2.5
+              md:bottom-4 md:right-4
+              lg:bottom-6 lg:right-6 lg:gap-3
+              xl:bottom-8 xl:right-8
+            "
           >
-            {/* Call Us Button */}
             <a
               href="tel:07503777838"
-              className="inline-flex items-center justify-center gap-2.5 bg-[#E300FF] hover:bg-[#eb2eff] text-black font-bold text-[17px] md:text-[18px] px-8 h-[48px] rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-[0_0_25px_rgba(227,0,255,0.45)]"
+              className="
+                inline-flex items-center justify-center gap-1.5
+                rounded-full bg-black text-white font-bold
+                shadow-lg transition hover:bg-neutral-800
+                h-8 px-3.5 text-[10px]
+                sm:h-9 sm:px-4 sm:text-[11px]
+                md:h-10 md:px-5 md:text-xs
+                lg:h-11 lg:px-6 lg:text-[13px]
+              "
             >
-              <Phone className="w-4 h-4 fill-black stroke-black" />
-              <span>Call Us</span>
+              <Phone className="fill-[#E300FF] text-[#E300FF] h-3 w-3 sm:h-3.5 sm:w-3.5" />
+              Call Us
             </a>
 
-            {/* Send An Enquiry Button */}
             <button
+              type="button"
               onClick={onOpenEnquiry}
-              className="group inline-flex items-center justify-center gap-3 border border-white hover:border-[#E300FF] hover:bg-white/10 text-white font-bold text-[17px] md:text-[18px] px-7 h-[48px] rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 backdrop-blur-sm"
+              className="
+                inline-flex items-center justify-center gap-1.5
+                rounded-full border border-white/20
+                bg-[#BA4882] text-white font-bold
+                shadow-lg backdrop-blur-sm transition hover:bg-[#c4548e]
+                h-8 px-3.5 text-[10px]
+                sm:h-9 sm:px-4 sm:text-[11px]
+                md:h-10 md:px-5 md:text-xs
+                lg:h-11 lg:px-6 lg:text-[13px]
+              "
             >
-              <span>Send An Enquiry</span>
-              <ArrowRight className="w-4 h-4 stroke-[2.5] transition-transform group-hover:translate-x-1" />
+              Send An Enquiry
+              <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={2.5} />
             </button>
-          </motion.div>
+          </div>
+        </div>
 
-          {/* Exact Figma Feature Badges (bare icons, no circles, matching screenshot) */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="pt-8 flex flex-wrap items-center gap-8 md:gap-10 lg:gap-12"
-          >
-            {/* 1: Supply & Installation (Crossed tools) */}
-            <div className="flex items-center gap-3.5">
-              <div className="relative w-7 h-7 sm:w-8 sm:h-8 shrink-0 flex items-center justify-center">
-                <Image
-                  src="/images/Group.png"
-                  alt="Supply & Installation icon"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="text-white font-bold text-[13px] sm:text-[15px] md:text-[16px] leading-[1.25] tracking-[0.01em] uppercase">
-                <div>SUPPLY &amp;</div>
-                <div>INSTALLATION</div>
-              </div>
-            </div>
+        {/* ── TABLET-ONLY CONTENT BLOCK (below banner, md only 768-1023px) ── */}
+        <div
+          className="
+            hidden md:flex lg:hidden
+            items-start justify-between
+            gap-6
+            mt-4
+            px-1
+          "
+        >
+          {/* HEADING — left */}
+          <div className="flex-shrink-0 w-[34%]">
+            <h1
+              className="
+                font-sans font-extrabold tracking-tight text-black leading-[1.15]
+                text-[19px]
+              "
+            >
+              Premium Vending
+              <br />
+              In MCR - Part Of
+              <br />
+              A Lifestyle!
+            </h1>
+          </div>
 
-            {/* 2: Maintenance & Servicing (Flower cog/gear) */}
-            <div className="flex items-center gap-3.5">
-              <div className="relative w-7 h-7 sm:w-8 sm:h-8 shrink-0 flex items-center justify-center">
-                <Image
-                  src="/images/Vector(1).png"
-                  alt="Maintenance & Servicing icon"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="text-white font-bold text-[13px] sm:text-[15px] md:text-[16px] leading-[1.25] tracking-[0.01em] uppercase">
-                <div>MAINTENANCE</div>
-                <div>&amp; SERVICING</div>
-              </div>
-            </div>
+          {/* DESCRIPTION — right */}
+          <div className="flex-1 min-w-0 flex items-center">
+            <p
+              className="
+                font-sans font-normal text-black leading-[1.55]
+                text-right
+                text-[11px]
+              "
+            >
+              Vende-Social MCR provides for today&apos;s fast-moving,
+              seamless city living. Inspired by the exciting and lofty
+              Manchester skyline, we recognise that vending has a social
+              role; keeping your clients, staff, members and visitors
+              connected!
+            </p>
+          </div>
+        </div>
 
-            {/* 3: Restocking & Support (3D Box) */}
-            <div className="flex items-center gap-3.5">
-              <div className="relative w-8 h-6 sm:w-9 sm:h-7 shrink-0 flex items-center justify-center">
-                <Image
-                  src="/images/Group 265.png"
-                  alt="Restocking & Support icon"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <div className="text-white font-bold text-[13px] sm:text-[15px] md:text-[16px] leading-[1.25] tracking-[0.01em] uppercase">
-                <div>RESTOCKING</div>
-                <div>&amp; SUPPORT</div>
-              </div>
-            </div>
-          </motion.div>
+        {/* FEATURE CARDS */}
+        <div
+          className="
+            mt-4 grid gap-2.5
+            grid-cols-2
+            sm:mt-5 sm:gap-3.5
+            md:grid-cols-4
+            lg:mt-7 lg:gap-5
+            xl:mt-9 xl:gap-7
+          "
+        >
+          {featureCards.map((card, index) => (
+            <motion.div
+              key={card.title}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.08,
+              }}
+              whileHover={{ y: -4 }}
+              className={`
+                flex min-h-[56px] items-center
+                justify-center rounded-xl px-2 py-3
+                text-center transition-shadow duration-300
+                sm:min-h-[72px] sm:rounded-2xl sm:px-3
+                lg:min-h-[90px] lg:px-4
+                xl:min-h-[100px]
+                ${card.bgDark
+                  ? "bg-black text-white shadow-[0_0_20px_rgba(0,0,0,0.20)]"
+                  : "bg-white text-black shadow-[0_0_20px_rgba(0,0,0,0.14)] hover:shadow-[0_0_25px_rgba(227,0,255,0.18)]"
+                }
+              `}
+            >
+              <span
+                className="
+                  font-sans font-bold leading-snug tracking-wide
+                  text-[10px]
+                  sm:text-[12px]
+                  lg:text-[14px]
+                  xl:text-[16px]
+                "
+              >
+                {card.title}
+              </span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

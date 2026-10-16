@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface WhatWeDoProps {
@@ -30,7 +29,7 @@ export default function WhatWeDo({ onLearnMore }: WhatWeDoProps) {
     {
       id: "water",
       title: "Water Solutions",
-      description: "Fresh, convenient water solutions for workplaces, gyms, residential spaces and more.",
+      description: "Cool and Hydrating solutions for workplaces, gyms, residential spaces and more.",
       icon: "/images/Vector-2.png",
       width: 28,
       height: 34,
@@ -46,76 +45,67 @@ export default function WhatWeDo({ onLearnMore }: WhatWeDoProps) {
   ];
 
   return (
-    <section id="services" className="relative w-full bg-white py-24 lg:py-32 overflow-hidden">
-      <div className="max-w-[1920px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20">
-        {/* Header Row */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16 lg:mb-20">
+    <section id="services" className="relative w-full bg-white pt-8 sm:pt-12 pb-16 sm:pb-24 overflow-hidden">
+      <div className="max-w-[1746px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 w-full">
+        {/* Vector 10 Divider Line */}
+        <div className="w-full h-[1px] bg-black opacity-30 mb-8 sm:mb-12 lg:mb-16" />
+
+        {/* Section Header Row */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-14 lg:mb-20">
           {/* Left Title */}
           <div>
-            <div className="text-[#E300FF] font-bold text-sm md:text-[23px] tracking-[0.32em] uppercase mb-3">
+            <div className="text-[#E300FF] font-bold text-xs sm:text-sm md:text-base lg:text-[18px] xl:text-[23px] tracking-[0.22em] sm:tracking-[0.32em] uppercase mb-2 sm:mb-3">
               WHAT WE DO
             </div>
-            <h2 className="text-black text-4xl sm:text-5xl md:text-[65px] font-extrabold uppercase leading-[1.05] tracking-tight">
-              Complete Vending
+            <h2 className="text-black font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-[52px] xl:text-[65px] leading-[1.1] sm:leading-[1.08] tracking-[0.01em] capitalize">
+              <div>Complete Vending</div>
+              <div>Solutions</div>
             </h2>
-            <div className="font-cookie text-6xl sm:text-7xl md:text-[110px] leading-[0.95] gradient-text-solutions capitalize pt-1">
-              Solutions
-            </div>
           </div>
 
           {/* Right Description */}
-          <div className="max-w-xl lg:text-right">
-            <p className="text-black/85 text-lg md:text-[22px] font-normal leading-[1.45] tracking-[0.01em]">
-              We provide fully managed vending solutions designed around modern lifestyles — from vending machines and coffee to fresh water and everyday essentials.
+          <div className="max-w-2xl lg:text-right">
+            <p className="text-black font-normal text-sm sm:text-base md:text-[17px] lg:text-[19px] xl:text-[23px] leading-[1.5] tracking-[0.01em]">
+              We offer a free consultation at your convenience, identifying your specific business requirements of drinks snacks, confectionary, essential electrical items. Our machines are easy and effective to use with card payment facilities for safety, convenience and efficiency.
             </p>
           </div>
         </div>
 
         {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 xl:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
-              className="group relative bg-white rounded-[20px] p-8 md:p-9 flex flex-col justify-between min-h-[380px] border border-gray-100 transition-all duration-300 card-shadow hover:card-shadow-hover hover:border-[#E300FF]/30"
+              whileHover={{ y: -6 }}
+              onClick={() => onLearnMore && onLearnMore(service.title)}
+              className="bg-white rounded-[20px] p-5 sm:p-6 lg:p-6 xl:p-8 flex flex-col justify-between min-h-[auto] sm:min-h-[260px] lg:min-h-[280px] xl:min-h-[319px] shadow-[0px_0px_25px_rgba(0,0,0,0.14)] hover:shadow-[0px_0px_35px_rgba(227,0,255,0.25)] transition-all duration-300 cursor-pointer border border-transparent hover:border-[#E300FF]/30"
             >
               <div>
-                {/* Exact Figma Extracted Icon in pink/magenta */}
-                <div className="w-14 h-14 rounded-2xl bg-[#E300FF]/10 flex items-center justify-center mb-8 p-3 group-hover:scale-110 transition-transform duration-300">
+                {/* Purple Icon */}
+                <div className="w-9 h-9 sm:w-11 sm:h-11 xl:w-12 xl:h-12 flex items-center justify-start mb-3 sm:mb-5 xl:mb-6">
                   <Image
                     src={service.icon}
                     alt={service.title}
                     width={service.width}
                     height={service.height}
+                    style={{ width: "auto", height: "auto" }}
                     className="object-contain"
                   />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-black font-bold text-[24px] leading-snug mb-4">
+                <h3 className="text-black font-bold text-base sm:text-lg lg:text-[20px] xl:text-[24px] leading-[1.3] mb-2 sm:mb-3">
                   {service.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-black/75 text-[18px] leading-[1.5] font-normal">
+                <p className="text-black font-normal text-xs sm:text-sm lg:text-[15px] xl:text-[18px] 2xl:text-[22px] leading-[1.45]">
                   {service.description}
                 </p>
-              </div>
-
-              {/* Bottom Divider & Learn More */}
-              <div className="pt-6">
-                <div className="w-full h-[1.5px] bg-[#D9D9D9] mb-5 group-hover:bg-[#E300FF]/40 transition-colors" />
-                <button
-                  onClick={() => onLearnMore && onLearnMore(service.title)}
-                  className="inline-flex items-center gap-2.5 text-[#E300FF] font-bold text-[17px] tracking-wider uppercase group-hover:gap-4 transition-all"
-                >
-                  <span>LEARN MORE</span>
-                  <ArrowRight className="w-4 h-4 stroke-[2.5]" />
-                </button>
               </div>
             </motion.div>
           ))}

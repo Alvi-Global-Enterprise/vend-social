@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import WhatWeDo from "@/components/WhatWeDo";
 import Reimagined from "@/components/Reimagined";
 import WhoWeServe from "@/components/WhoWeServe";
-import WhatYouCanFind from "@/components/WhatYouCanFind";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import CtaBanner from "@/components/CtaBanner";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import EnquiryModal from "@/components/EnquiryModal";
 
@@ -29,34 +28,30 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-white text-black selection:bg-[#E300FF] selection:text-white relative">
-      {/* Top Fixed Navbar */}
-      <Navbar onOpenEnquiry={() => openEnquiryModal("Enquire About Advertising", "Advertising Display")} />
+      {/* Top Navbar */}
+      <Navbar onOpenEnquiry={() => openEnquiryModal("Send an Enquiry", "Smart Vending")} />
 
       {/* 1. Hero Section */}
-      <Hero onOpenEnquiry={() => openEnquiryModal("Send an Enquiry", "Smart Vending Solution")} />
+      <Hero onOpenEnquiry={() => openEnquiryModal("Send an Enquiry", "Lifestyle Vending")} />
 
       {/* 2. What We Do - Complete Vending Solutions */}
       <WhatWeDo onLearnMore={(serviceName) => openEnquiryModal(`Learn More: ${serviceName}`, serviceName)} />
 
-      {/* 3. More Than Convenience - Vending Reimagined */}
+      {/* 3. Complete Vending Solutions - Contactless Payment Image Section */}
       <Reimagined
-        onOpenEnquiry={() => openEnquiryModal("Make an Enquiry", "Fully Managed Vending")}
-        onViewLocations={() => openEnquiryModal("View All Locations & Request Machine", "Location Inquiry")}
+        onOpenEnquiry={() => openEnquiryModal("Make an Enquiry", "Contactless Vending")}
       />
 
-      {/* 4. Who We Serve - Solutions for Every Space */}
-      <WhoWeServe onOurServicesClick={() => openEnquiryModal("Explore Services for Your Space", "Space Inquiry")} />
+      {/* 4. About - A Family-Run Business & Solutions For Every Space */}
+      <WhoWeServe onOurServicesClick={() => openEnquiryModal("Explore Services for Your Space", "Space Solution")} />
 
-      {/* 5. What You Can Find - Your Everyday Essentials */}
-      <WhatYouCanFind onExploreProducts={() => openEnquiryModal("Explore Product Stocking", "Product Catalog")} />
-
-      {/* 6. Why VEND-SOCIALMCR - Why Choose Us? */}
+      {/* 5. Why VEND-SOCIAL MCR - Why Choose Us? */}
       <WhyChooseUs />
 
-      {/* 7. Ready For Smarter Vending - CTA Banner */}
-      <CtaBanner onOpenEnquiry={() => openEnquiryModal("Request Vending Solution", "Turnkey Solution")} />
+      {/* 6. Contact Us - Team Info & Direct Form */}
+      <ContactSection />
 
-      {/* 8. Footer */}
+      {/* 7. Footer */}
       <Footer />
 
       {/* Interactive Modal */}

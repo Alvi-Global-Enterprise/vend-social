@@ -35,12 +35,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${cookie.variable} ${plusJakartaSans.variable} font-sans scroll-smooth`}
     >
       <head>
         <link rel="icon" href="/fav.png" type="image/png" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fontsource/line-seed-jp@latest/index.css"
+        />
       </head>
-      <body className="bg-white text-black antialiased selection:bg-[#E300FF] selection:text-white">
+      <body
+        suppressHydrationWarning
+        className="bg-white text-black antialiased selection:bg-[#E300FF] selection:text-white"
+      >
         {children}
       </body>
     </html>
