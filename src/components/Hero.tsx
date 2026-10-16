@@ -29,7 +29,7 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
       id="home"
       className="relative w-full bg-white pt-20 pb-6 sm:pb-8 lg:pb-12"
     >
-      <div className="mx-auto w-full max-w-[1742px] px-3 sm:px-5 lg:px-8 xl:px-10">
+      <div className="mx-auto w-full max-w-[1746px] px-4 sm:px-8 lg:px-12">
 
         {/* HERO BANNER */}
         <div
@@ -54,8 +54,8 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
             alt="VEND-SOCIAL MCR smart vending machines overlooking Manchester"
             fill
             priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 0px, 1742px"
-            className="object-cover object-center mt-30 md:hidden lg:block"
+            sizes="(max-width: 1024px) 0px, 1742px"
+            className="object-cover mt-28 object-center hidden lg:block"
           />
 
           {/* ── Tablet-only image: hero-image1.png (md only, 768-1023px) ── */}
@@ -64,16 +64,17 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
             alt="VEND-SOCIAL MCR smart vending machines overlooking Manchester"
             fill
             priority
-            sizes="(max-width: 768px) 0px, (max-width: 1024px) 100vw, 0px"
-            className="object-cover object-center mt-20  hidden md:block lg:hidden"
+            sizes="(max-width: 1024px) 100vw, 0px"
+            className="object-cover object-center block lg:hidden"
           />
 
           {/* ── MOBILE/SM CONTENT PANEL (overlaid, hidden on md tablet only) ── */}
           <div
             className="
-              md:hidden lg:block
+              hidden lg:block
               absolute left-0 top-0 z-10
-              bg-white
+              bg-white 
+              md:bg-transparent
 
               w-[calc(100%-40px)]
               sm:w-[calc(100%-56px)]
@@ -83,7 +84,7 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
               rounded-br-[18px]
               sm:rounded-br-[26px]
               lg:rounded-br-[36px]
-
+              md:pl-2!
               px-3 py-3
               sm:px-5 sm:py-4
               lg:px-8 lg:py-6
@@ -110,7 +111,7 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
                 </h1>
               </div>
               {/* DESCRIPTION */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 mt-5">
                 <p
                   className="
                     font-sans font-normal text-black leading-[1.5]
@@ -210,22 +211,23 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
           </div>
         </div>
 
-        {/* ── TABLET-ONLY CONTENT BLOCK (below banner, md only 768-1023px) ── */}
+        {/* ── MOBILE + TABLET CONTENT BLOCK (below banner, hidden only on lg+) ── */}
         <div
           className="
-            hidden md:flex lg:hidden
-            items-start justify-between
-            gap-6
-            mt-4
-            px-1
+            flex lg:hidden
+            flex-col sm:flex-col md:flex-row
+            items-start md:justify-between
+            gap-2 md:gap-6
+            mt-3 md:mt-4
           "
         >
           {/* HEADING — left */}
-          <div className="flex-shrink-0 w-[34%]">
+          <div className="flex-shrink-0 w-full md:w-[34%]">
             <h1
               className="
                 font-sans font-extrabold tracking-tight text-black leading-[1.15]
-                text-[19px]
+                text-[clamp(18px,5vw,22px)]
+                md:text-[19px]
               "
             >
               Premium Vending
@@ -241,8 +243,9 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
             <p
               className="
                 font-sans font-normal text-black leading-[1.55]
-                text-right
-                text-[11px]
+                md:text-right
+                text-[clamp(10px,2.8vw,12px)]
+                md:text-[11px]
               "
             >
               Vende-Social MCR provides for today&apos;s fast-moving,

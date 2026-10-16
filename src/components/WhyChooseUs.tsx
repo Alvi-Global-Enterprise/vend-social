@@ -64,9 +64,8 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative flex flex-col justify-between group lg:px-3 xl:px-6 2xl:px-8 ${
-                index !== 0 ? "lg:border-l lg:border-[#D9D9D9]" : ""
-              }`}
+              className={`relative flex flex-col justify-between group lg:px-3 xl:px-6 2xl:px-8 ${index !== 0 ? "lg:border-l lg:border-[#D9D9D9]" : ""
+                }`}
             >
               <div>
                 {/* Big Number */}

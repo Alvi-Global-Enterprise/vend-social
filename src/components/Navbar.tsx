@@ -33,11 +33,10 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 h-20 z-50 bg-white transition-all duration-300 ${
-        isScrolled ? "shadow-sm py-2.5 sm:py-3" : "py-3 sm:py-4 md:py-6"
-      }`}
+      className={`fixed top-0 left-0 right-0 h-20 z-50 bg-white transition-all duration-300 ${isScrolled ? "shadow-sm py-2.5 sm:py-3" : "py-3 sm:py-4 md:py-6"
+        }`}
     >
-      <div className="max-w-[1746px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 w-full flex items-center justify-between">
+      <div className="max-w-[1746px] mx-auto px-4 sm:px-8 lg:px-12 w-full flex items-center justify-between">
         {/* Left Nav Links (Desktop >= lg) */}
         <nav className="hidden lg:flex items-center gap-8 xl:gap-14 flex-1">
           {leftNavItems.map((item) => {
@@ -128,9 +127,8 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
                 setActiveTab(item.id);
                 setMobileMenuOpen(false);
               }}
-              className={`block text-lg sm:text-xl font-bold py-2 ${
-                activeTab === item.id ? "text-[#E300FF]" : "text-black/60 hover:text-black"
-              }`}
+              className={`block text-lg sm:text-xl font-bold py-2 ${activeTab === item.id ? "text-[#E300FF]" : "text-black/60 hover:text-black"
+                }`}
             >
               {item.label}
             </a>
