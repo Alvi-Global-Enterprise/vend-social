@@ -42,7 +42,15 @@ export default function RootLayout({
         <link rel="icon" href="/fav.png" type="image/png" />
         <link
           rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@fontsource/line-seed-jp@latest/index.css"
+          href="https://cdn.jsdelivr.net/npm/@fontsource/line-seed-jp@5.3.2/400.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fontsource/line-seed-jp@5.3.2/700.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fontsource/line-seed-jp@5.3.2/800.css"
         />
       </head>
       <body

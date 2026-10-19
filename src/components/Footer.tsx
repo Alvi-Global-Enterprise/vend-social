@@ -23,8 +23,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 py-3 sm:py-4">
           {/* Left: Brand Logo */}
           <div className="flex-shrink-0">
-            <a href="#home" className="inline-block hover:scale-105 transition-transform">
-              <Logo size="md" className="h-8 sm:h-10 md:h-12 w-auto" />
+            <a href="#home" className="inline-block hover:scale-105 transition-transform" aria-label="VEND-SOCIAL MCR Home">
+              <Logo size="footer" />
             </a>
           </div>
 
@@ -37,13 +37,13 @@ export default function Footer() {
                   key={item.id}
                   href={item.href}
                   onClick={() => setActiveTab(item.id)}
-                  className="relative py-1 group text-sm sm:text-base xl:text-[18px] font-bold transition-all duration-200"
+                  className="relative py-1 group font-sans text-[16px] xl:text-[18px] font-bold leading-[20px] transition-all duration-200"
                 >
                   <span
                     className={
                       isActive
                         ? "text-[#E300FF]"
-                        : "text-black/40 hover:text-black transition-colors"
+                        : "text-black/35 hover:text-black transition-colors"
                     }
                   >
                     {item.label}
@@ -51,7 +51,7 @@ export default function Footer() {
 
                   {/* Underline indicator matching Figma Rectangle 123 (24px x 3px black rounded) */}
                   {isActive && (
-                    <span className="absolute -bottom-2 left-0 w-[24px] h-[3px] bg-black rounded-full" />
+                    <span className="absolute -bottom-2.5 left-0 w-[24px] h-[3px] bg-black rounded-[1.5px]" />
                   )}
                 </a>
               );
@@ -131,7 +131,7 @@ export default function Footer() {
         <div className="w-full h-[1px] bg-black opacity-30 mt-6 sm:mt-8 mb-6" />
 
         {/* Bottom Bar: Copyright on Left, Terms on Right */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-black font-normal text-xs sm:text-sm md:text-base lg:text-[18px] xl:text-[22px] tracking-[0.03em] sm:tracking-[0.08em] text-center sm:text-left">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-black font-normal text-[13px] sm:text-[15px] md:text-[18px] lg:text-[20px] xl:text-[23px] leading-[1.41] tracking-[0.08em] text-center sm:text-left">
           <div>
             © 2026 VENDSOCIAL-MCR. All rights reserved.
           </div>

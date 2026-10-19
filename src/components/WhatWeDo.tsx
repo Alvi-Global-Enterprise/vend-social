@@ -13,100 +13,107 @@ export default function WhatWeDo({ onLearnMore }: WhatWeDoProps) {
     {
       id: "vending",
       title: "Vending Machines",
-      description: "Drinks, snacks, food and everyday essentials, available when you need them.",
+      description:
+        "Drinks, snacks, food and everyday essentials, available when you need them.",
       icon: "/images/Vector-1.png",
-      width: 32,
-      height: 32,
+      width: 36,
+      height: 36,
     },
     {
       id: "coffee",
       title: "Coffee Solutions",
-      description: "Premium coffee and hot beverage solutions for busy people and modern spaces.",
+      description:
+        "Premium coffee and hot beverage solutions for busy people and modern spaces.",
       icon: "/images/Page-1.png",
-      width: 32,
-      height: 32,
+      width: 36,
+      height: 36,
     },
     {
       id: "water",
       title: "Water Solutions",
-      description: "Cool and Hydrating solutions for workplaces, gyms, residential spaces and more.",
+      description:
+        "Cool and Hydrating solutions for workplaces, gyms, residential spaces and more.",
       icon: "/images/Vector-2.png",
-      width: 28,
-      height: 34,
+      width: 30,
+      height: 38,
     },
     {
       id: "managed",
       title: "Fully Managed Service",
-      description: "From supply and installation to maintenance and restocking, we take care of everything.",
+      description:
+        "From supply and installation to maintenance and restocking, we take care of everything.",
       icon: "/images/Vector.png",
-      width: 32,
-      height: 32,
+      width: 36,
+      height: 36,
     },
   ];
 
   return (
-    <section id="services" className="relative w-full bg-white pt-8 sm:pt-12 pb-16 sm:pb-24 overflow-hidden">
-      <div className="max-w-[1746px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 w-full">
-        {/* Vector 10 Divider Line */}
-        <div className="w-full h-[1px] bg-black opacity-30 mb-8 sm:mb-12 lg:mb-16" />
+    <section
+      id="services"
+      className="relative w-full overflow-hidden bg-white pt-8 pb-16 sm:pt-12 sm:pb-20 lg:pb-24"
+    >
+      <div className="mx-auto w-full max-w-[1746px] px-4 sm:px-8 lg:px-12">
+        {/* Divider */}
+        <div className="mb-10 h-px w-full bg-black/25 sm:mb-14 lg:mb-16" />
 
-        {/* Section Header Row */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-14 lg:mb-20">
-          {/* Left Title */}
-          <div>
-            <div className="text-[#E300FF] font-bold text-xs sm:text-sm md:text-base lg:text-[18px] xl:text-[23px] tracking-[0.22em] sm:tracking-[0.32em] uppercase mb-2 sm:mb-3">
+        {/* Header: title left + description right */}
+        <div className="mb-10 flex flex-col justify-between gap-6 sm:mb-12 lg:mb-16 lg:flex-row lg:items-end lg:gap-14 xl:gap-20">
+          <div className="max-w-[700px] shrink-0">
+            <p className="mb-2 font-sans text-[15px] sm:text-[18px] lg:text-[23px] font-bold uppercase tracking-[0.32em] text-[#E300FF] leading-[25px]">
               WHAT WE DO
-            </div>
-            <h2 className="text-black font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-[52px] xl:text-[65px] leading-[1.1] sm:leading-[1.08] tracking-[0.01em] capitalize">
-              <div>Complete Vending</div>
-              <div>Solutions</div>
+            </p>
+            <h2 className="font-sans text-[36px] sm:text-[48px] md:text-[56px] lg:text-[60px] xl:text-[65px] font-extrabold capitalize leading-[1.09] tracking-[0.01em] text-black">
+              Complete Vending
+              <br />
+              Solutions
             </h2>
           </div>
 
-          {/* Right Description */}
-          <div className="max-w-2xl lg:text-right">
-            <p className="text-black font-normal text-sm sm:text-base md:text-[17px] lg:text-[19px] xl:text-[23px] leading-[1.5] tracking-[0.01em]">
+          <div className="w-full max-w-[882px] lg:ml-auto">
+            <p className="font-sans text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] xl:text-[23px] font-normal leading-[1.41] tracking-[0.01em] text-black lg:text-right">
               We offer a free consultation at your convenience, identifying your specific business requirements of drinks snacks, confectionary, essential electrical items. Our machines are easy and effective to use with card payment facilities for safety, convenience and efficiency.
             </p>
           </div>
         </div>
 
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 xl:gap-8">
+        {/* Service cards */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-6">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
-              onClick={() => onLearnMore && onLearnMore(service.title)}
-              className="bg-white rounded-[20px] p-5 sm:p-6 lg:p-6 xl:p-8 flex flex-col justify-between min-h-[auto] sm:min-h-[260px] lg:min-h-[280px] xl:min-h-[319px] shadow-[0px_0px_25px_rgba(0,0,0,0.14)] hover:shadow-[0px_0px_35px_rgba(227,0,255,0.25)] transition-all duration-300 cursor-pointer border border-transparent hover:border-[#E300FF]/30"
+              transition={{ duration: 0.45, delay: index * 0.08 }}
+              whileHover={{ y: -4 }}
+              onClick={() => onLearnMore?.(service.title)}
+              className="
+                flex cursor-pointer flex-col justify-start
+                rounded-[20px] bg-white p-6 sm:p-7 xl:p-8
+                min-h-[260px] sm:min-h-[290px] xl:min-h-[320px]
+                shadow-[0px_0px_25px_rgba(0,0,0,0.20)]
+                transition-all duration-300
+                hover:shadow-[0px_10px_35px_rgba(227,0,255,0.18)]
+              "
             >
-              <div>
-                {/* Purple Icon */}
-                <div className="w-9 h-9 sm:w-11 sm:h-11 xl:w-12 xl:h-12 flex items-center justify-start mb-3 sm:mb-5 xl:mb-6">
-                  <Image
-                    src={service.icon}
-                    alt={service.title}
-                    width={service.width}
-                    height={service.height}
-                    style={{ width: "auto", height: "auto" }}
-                    className="object-contain"
-                  />
-                </div>
-
-                {/* Title */}
-                <h3 className="text-black font-bold text-base sm:text-lg lg:text-[20px] xl:text-[24px] leading-[1.3] mb-2 sm:mb-3">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-black font-normal text-xs sm:text-sm lg:text-[15px] xl:text-[18px] 2xl:text-[22px] leading-[1.45]">
-                  {service.description}
-                </p>
+              <div className="mb-6 flex h-10 w-10 items-center justify-start sm:h-11 sm:w-11">
+                <Image
+                  src={service.icon}
+                  alt=""
+                  width={service.width}
+                  height={service.height}
+                  className="h-auto w-auto object-contain"
+                />
               </div>
+
+              <h3 className="mb-3 font-sans text-[18px] sm:text-[20px] lg:text-[22px] xl:text-[24px] font-bold leading-[1.498] text-black">
+                {service.title}
+              </h3>
+
+              <p className="font-sans text-[15px] sm:text-[17px] lg:text-[20px] xl:text-[23px] font-normal leading-[1.498] text-black">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </div>

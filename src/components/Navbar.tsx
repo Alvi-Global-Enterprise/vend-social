@@ -15,9 +15,9 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 8);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -33,8 +33,11 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 h-20 z-50 bg-white transition-all duration-300 ${isScrolled ? "shadow-sm py-2.5 sm:py-3" : "py-3 sm:py-4 md:py-6"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 border-b border-black/15 ${
+        isScrolled
+          ? "shadow-sm py-2 sm:py-2.5 lg:py-3"
+          : "py-2.5 sm:py-3 md:py-3.5 lg:py-4 xl:py-5"
+      }`}
     >
       <div className="max-w-[1746px] mx-auto px-4 sm:px-8 lg:px-12 w-full flex items-center justify-between">
         {/* Left Nav Links (Desktop >= lg) */}
@@ -46,7 +49,7 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
                 key={item.id}
                 href={item.href}
                 onClick={() => setActiveTab(item.id)}
-                className="relative py-1 group text-base xl:text-[18px] font-bold transition-all duration-200"
+                className="relative py-1 group font-sans text-[18px] font-bold leading-[20px] transition-all duration-200"
               >
                 <span
                   className={
@@ -60,22 +63,27 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
 
                 {/* Underline indicator matching Figma Rectangle 3 (24px x 3px black rounded) */}
                 {isActive && (
-                  <span className="absolute -bottom-2 left-0 w-[24px] h-[3px] bg-black rounded-full" />
+                  <span className="absolute -bottom-2.5 left-0 w-[24px] h-[3px] bg-black rounded-[1.5px]" />
                 )}
               </a>
             );
           })}
         </nav>
 
-        {/* Center Brand Logo */}
-        <div className="flex-shrink-0 flex items-center justify-center">
-          <a href="#home" className="transition-transform hover:scale-105 active:scale-95 inline-block">
-            <Logo size="lg" className="h-8 sm:h-10 md:h-12 lg:h-14 xl:h-16 " />
+        {/* Center Logo */}
+        <div className="flex flex-shrink-0 items-center justify-center">
+          <a
+            href="#home"
+            onClick={() => setActiveTab("home")}
+            className="inline-block transition-transform hover:scale-105 active:scale-95"
+            aria-label="VEND-SOCIAL MCR Home"
+          >
+            <Logo size="header" />
           </a>
         </div>
 
-        {/* Right Nav Links (Desktop >= lg) */}
-        <nav className="hidden lg:flex items-center justify-end gap-8 xl:gap-14 flex-1">
+        {/* Right Nav */}
+        <nav className="hidden flex-1 items-center justify-end gap-8 xl:gap-14 lg:flex">
           {rightNavItems.map((item) => {
             const isActive = activeTab === item.id;
             return (
@@ -83,7 +91,7 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
                 key={item.id}
                 href={item.href}
                 onClick={() => setActiveTab(item.id)}
-                className="relative py-1 group text-base xl:text-[18px] font-bold transition-all duration-200"
+                className="relative py-1 group font-sans text-[18px] font-bold leading-[20px] transition-all duration-200"
               >
                 <span
                   className={
@@ -96,29 +104,34 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
                 </span>
 
                 {isActive && (
-                  <span className="absolute -bottom-2 left-0 w-[24px] h-[3px] bg-black rounded-full" />
+                  <span className="absolute -bottom-2.5 left-0 w-[24px] h-[3px] bg-black rounded-[1.5px]" />
                 )}
               </a>
             );
           })}
         </nav>
 
-        {/* Mobile Hamburger Button (< lg) */}
-        <div className="lg:hidden flex items-center">
+        {/* Mobile menu button */}
+        <div className="flex items-center lg:hidden">
           <button
+            type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-black hover:text-[#E300FF] transition-colors"
+            className="p-2 text-black transition-colors hover:text-[#E300FF]"
             aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 sm:w-7 sm:h-7" /> : <Menu className="w-6 h-6 sm:w-7 sm:h-7" />}
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6 sm:h-7 sm:w-7" />
+            ) : (
+              <Menu className="h-6 w-6 sm:h-7 sm:w-7" />
+            )}
           </button>
         </div>
       </div>
 
-
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-black/10 px-6 py-6 space-y-4 animate-in slide-in-from-top duration-200 shadow-xl">
+        <div className="space-y-1 border-t border-black/10 bg-white px-6 py-5 shadow-lg lg:hidden">
           {[...leftNavItems, ...rightNavItems].map((item) => (
             <a
               key={item.id}
@@ -133,17 +146,20 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
               {item.label}
             </a>
           ))}
-          <div className="pt-2">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (onOpenEnquiry) onOpenEnquiry();
-              }}
-              className="w-full bg-[#E300FF] hover:bg-[#eb2eff] text-black font-bold text-base h-[48px] rounded-full transition-all"
-            >
-              Send An Enquiry
-            </button>
-          </div>
+          {onOpenEnquiry && (
+            <div className="pt-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenEnquiry();
+                }}
+                className="h-12 w-full rounded-full bg-[#E300FF] text-base font-bold text-black transition-all hover:bg-[#eb2eff]"
+              >
+                Send An Enquiry
+              </button>
+            </div>
+          )}
         </div>
       )}
     </header>
