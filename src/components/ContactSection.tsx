@@ -5,7 +5,7 @@ import { ArrowRight, Users, Phone, Mail, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const inputClass =
-  "w-full h-[45px] bg-[#E8E8E8] hover:bg-[#E0E0E0] focus:bg-[#EFEFEF] border-0 rounded-[200px] px-6 text-black placeholder:text-black/35 font-normal text-[16px] leading-[23px] tracking-[0.01em] focus:outline-none focus:ring-2 focus:ring-[#E300FF]/50 transition-all";
+  "w-full h-[45px] bg-[#E8E8E8] hover:bg-[#E0E0E0] focus:bg-[#EFEFEF] border-0 rounded-[200px] px-6 text-black placeholder:text-black font-normal text-[16px] leading-[23px] tracking-[0.01em] focus:outline-none focus:ring-2 focus:ring-[#E300FF]/50 transition-all";
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -62,8 +62,8 @@ export default function ContactSection() {
                   <div className="font-sans text-[15px] sm:text-[18px] font-bold uppercase leading-[1.41] tracking-[0.01em] text-black">
                     Jay Patwal MA
                   </div>
-                  <div className="mt-0.5 font-sans text-[14px] sm:text-[18px] font-normal uppercase tracking-[0.01em] text-black/45 leading-[1.41]">
-                    Sales Executive
+                  <div className="mt-0.5 font-sans text-[14px] sm:text-[18px] font-normal uppercase tracking-[0.01em] text-black leading-[1.41]">
+                    Founder and Sales Director
                   </div>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function ContactSection() {
                   <div className="font-sans text-[15px] sm:text-[18px] font-bold uppercase leading-[1.41] tracking-[0.01em] text-black">
                     Kira Kaur LLB Hons Dip LP
                   </div>
-                  <div className="mt-0.5 font-sans text-[14px] sm:text-[18px] font-normal uppercase tracking-[0.01em] text-black/45 leading-[1.41]">
+                  <div className="mt-0.5 font-sans text-[14px] sm:text-[18px] font-normal uppercase tracking-[0.01em] text-black leading-[1.41]">
                     New Business Manager
                   </div>
                 </div>
@@ -87,7 +87,7 @@ export default function ContactSection() {
                 />
                 <a
                   href="tel:07503777838"
-                  className="font-sans text-[15px] sm:text-[18px] font-normal uppercase tracking-[0.01em] text-black/50 transition-colors hover:text-black leading-[1.41]"
+                  className="font-sans text-[15px] sm:text-[18px] font-normal uppercase tracking-[0.01em] text-black transition-colors hover:text-black/70 leading-[1.41]"
                 >
                   07503 777 838
                 </a>
@@ -100,7 +100,7 @@ export default function ContactSection() {
                 />
                 <a
                   href="mailto:jk@vendsocialmcr.com"
-                  className="break-all font-sans text-[15px] sm:text-[18px] font-normal uppercase tracking-[0.01em] text-black/50 underline transition-colors hover:text-black leading-[1.41] sm:break-normal"
+                  className="break-all font-sans text-[15px] sm:text-[18px] font-normal uppercase tracking-[0.01em] text-black underline transition-colors hover:text-black/70 leading-[1.41] sm:break-normal"
                 >
                   jk@vendsocialmcr.com
                 </a>
@@ -122,7 +122,7 @@ export default function ContactSection() {
                 <h3 className="text-2xl font-extrabold text-black sm:text-3xl">
                   Thank You!
                 </h3>
-                <p className="mx-auto max-w-md text-base text-black/70 sm:text-lg">
+                <p className="mx-auto max-w-md text-base text-black sm:text-lg">
                   Your enquiry has been received. Our team will contact you
                   shortly to arrange your free consultation.
                 </p>
@@ -206,7 +206,7 @@ export default function ContactSection() {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="w-full min-h-[80px] resize-none rounded-[24px] border-0 bg-[#E8E8E8] px-6 py-4 text-[16px] leading-[23px] font-normal text-black placeholder:text-black/35 transition-all hover:bg-[#E0E0E0] focus:bg-[#EFEFEF] focus:outline-none focus:ring-2 focus:ring-[#E300FF]/50"
+                  className="w-full min-h-[80px] resize-none rounded-[24px] border-0 bg-[#E8E8E8] px-6 py-4 text-[16px] leading-[23px] font-normal text-black placeholder:text-black transition-all hover:bg-[#E0E0E0] focus:bg-[#EFEFEF] focus:outline-none focus:ring-2 focus:ring-[#E300FF]/50"
                 />
 
                 <button
