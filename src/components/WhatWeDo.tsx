@@ -72,7 +72,7 @@ export default function WhatWeDo({ onLearnMore }: WhatWeDoProps) {
 
           <div className="w-full max-w-[882px] lg:ml-auto">
             <p className="font-sans text-[15px] sm:text-[17px] md:text-[19px] lg:text-[21px] xl:text-[23px] font-normal leading-[1.41] tracking-[0.01em] text-black lg:text-right">
-              We offer a free consultation at your convenience, identifying your specific business requirements of drinks snacks, confectionary, essential electrical items. Our machines are easy and effective to use with card payment facilities for safety, convenience and efficiency.
+              We offer a free consultation at your convenience, identifying your specific business requirements of drinks, snacks, confectionery, essential electrical items. State of the art machines also allow valuable advertising on inbuilt screens. Our machines are easy and effective to use with card payment facilities for safety, convenience and efficiency.
             </p>
           </div>
         </div>

@@ -186,8 +186,8 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
 
           <div className="flex-1 min-w-0">
             <p className="font-sans font-normal text-black leading-[1.4] md:text-right text-[13px] sm:text-[15px] md:text-[17px]">
-              Vende-Social MCR provides for todays fast-moving seamless city
-              living. Inspired by the exciting and lofty Manchester skyline
+              Vend-Social MCR provides for today&apos;s fast-moving seamless city
+              living. Inspired by the exciting and lofty Manchester skyline,
               we recognise that vending has a social role; keeping your clients,
               staff, members and visitors connected!
             </p>
@@ -195,8 +195,8 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
         </div>
         <div className="flex-1 mt-[160px] min-w-0">
           <p className="font-sans font-normal text-black text-center tracking-[0.01em] leading-[1.28] text-[13px] sm:text-[15px] lg:text-[19px] xl:text-[25px]">
-            Vende-Social MCR provides for todays fast-moving seamless city
-            living. Inspired by the exciting and lofty Manchester skyline
+            Vend-Social MCR provides for today&apos;s fast-moving seamless city
+            living. Inspired by the exciting and lofty Manchester skyline,
             we recognise that vending has a social role; keeping your
             clients, staff, members and visitors connected!
           </p>

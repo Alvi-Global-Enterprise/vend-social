@@ -133,7 +133,7 @@ export default function Footer() {
         {/* Bottom Bar: Copyright on Left, Terms on Right */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-black font-normal text-[13px] sm:text-[15px] md:text-[18px] lg:text-[20px] xl:text-[23px] leading-[1.41] tracking-[0.08em] text-center sm:text-left">
           <div>
-            © 2026 VENDSOCIAL-MCR. All rights reserved.
+            © 2026 VEND-SOCIAL MCR. All rights reserved.
           </div>
           <div className="flex items-center gap-2 text-center sm:text-right">
             <a href="#privacy" className="hover:text-[#E300FF] transition-colors">

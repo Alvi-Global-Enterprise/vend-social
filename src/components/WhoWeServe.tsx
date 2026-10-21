@@ -82,7 +82,7 @@ export default function WhoWeServe({ onOurServicesClick }: WhoWeServeProps) {
               VEND-SOCIAL MCR is a family run business. With over 30 years of
               business and professional experience, we have taken exciting and
               innovative concepts to successful reality in high profile
-              commercial locations. we understand the importance of connection
+              commercial locations. We understand the importance of connection
               and convenience.
             </motion.p>
 
